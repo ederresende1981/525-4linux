@@ -1,0 +1,18 @@
+---
+
+- name: resolv.conf padrao
+  hosts: all
+  tasks:
+   - name: Enviar resolv.conf padrao
+     copy:
+      src: resolv.conf
+      dest: /etc/
+
+
+- name: instalar o pacotes vim htop sysstat 
+  hosts: devops docker
+  tasks:
+   - name: instala pacotes vim htop sysstat 
+     apt: name=sl name=vim name=sysstat state=present update_cache=yes
+
+

@@ -1,0 +1,6 @@
+    - name: upload do index.html
+      copy:
+       src: /etc/ansible/roles/web/files/index.php
+       dest: /var/www/html/
+
+

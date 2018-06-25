@@ -1,0 +1,27 @@
+
+- name: instalar repo puppet deb
+  get_url:
+   url: https://apt.puppetlabs.com/puppet5-release-xenial.deb
+   dest: /tmp/puppet-agent.deb
+  when: ansible_os_family == "Debian"
+
+- name: instalar repositorio deb
+  apt:
+   deb: /tmp/puppet-agent.deb
+  when: ansible_os_family == "Debian"
+
+
+
+- name: instalar repositorio rpm
+  yum:
+   name: https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
+   state: present
+  when: ansible_os_family == "RedHat"
+
+
+
+- name: install puppet-agent
+  package:
+   name: puppet-agent
+   state: present
+   update_cache: yes
